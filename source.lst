@@ -1,0 +1,127 @@
+FE00: A9 1F       LDA #$1F
+FE02: 8D 03 50    STA $5003
+FE05: A9 0B       LDA #$0B
+FE07: 8D 02 50    STA $5002
+FE0A: A9 1B       LDA #$1B
+FE0C: C9 08       CMP #$08
+FE0E: F0 13       BEQ $13
+FE10: C9 1B       CMP #$1B
+FE12: F0 03       BEQ $03
+FE14: C8          INY
+FE15: 10 0F       BPL $0F
+FE17: A9 5C       LDA #$5C
+FE19: 20 EF FE    JSR $FEEF
+FE1C: A9 0D       LDA #$0D
+FE1E: 20 EF FE    JSR $FEEF
+FE21: A0 01       LDY #$01
+FE23: 88          DEY
+FE24: 30 F6       BMI $F6
+FE26: AD 01 50    LDA $5001
+FE29: 29 08       AND #$08
+FE2B: F0 F9       BEQ $F9
+FE2D: AD 00 50    LDA $5000
+FE30: 99 00 02    STA $0200,Y
+FE33: 20 EF FE    JSR $FEEF
+FE36: C9 0D       CMP #$0D
+FE38: D0 D2       BNE $D2
+FE3A: A0 FF       LDY #$FF
+FE3C: A9 00       LDA #$00
+FE3E: AA          TAX
+FE3F: 0A          ASL A
+FE40: 0A          ASL A
+FE41: 85 2B       STA #$2B
+FE43: C8          INY
+FE44: B9 00 02    LDA $0200,Y
+FE47: C9 0D       CMP #$0D
+FE49: F0 D1       BEQ $D1
+FE4B: C9 2E       CMP #$2E
+FE4D: 90 F4       BCC $F4
+FE4F: F0 EE       BEQ $EE
+FE51: C9 3A       CMP #$3A
+FE53: F0 EB       BEQ $EB
+FE55: C9 52       CMP #$52
+FE57: F0 3B       BEQ $3B
+FE59: 86 28       STX #$28
+FE5B: 86 29       STX #$29
+FE5D: 84 2A       STY #$2A
+FE5F: B9 00 02    LDA $0200,Y
+FE62: 49 30       EOR #$30
+FE64: C9 0A       CMP #$0A
+FE66: 90 06       BCC $06
+FE68: 69 88       ADC #$88
+FE6A: C9 FA       CMP #$FA
+FE6C: 90 11       BCC $11
+FE6E: 0A          ASL A
+FE6F: 0A          ASL A
+FE70: 0A          ASL A
+FE71: 0A          ASL A
+FE72: A2 04       LDX #$04
+FE74: 0A          ASL A
+FE75: 26 28       ROL #$28
+FE77: 26 29       ROL #$29
+FE79: CA          DEX
+FE7A: D0 F8       BNE $F8
+FE7C: C8          INY
+FE7D: D0 E0       BNE $E0
+FE7F: C4 2A       CPY #$2A
+FE81: F0 94       BEQ $94
+FE83: 24 2B       BIT #$2B
+FE85: 50 10       BVC $10
+FE87: A5 28       LDA #$28
+FE89: 81 26       STA ($26,X)
+FE8B: E6 26       INC #$26
+FE8D: D0 B5       BNE $B5
+FE8F: E6 27       INC #$27
+FE91: 4C 44 FE    JMP $FE44
+FE94: 6C 24 00    JMP ($0024)
+FE97: 30 2B       BMI $2B
+FE99: A2 02       LDX #$02
+FE9B: B5 27       LDA #$27,X
+FE9D: 95 25       STA #$25,X
+FE9F: 95 23       STA #$23,X
+FEA1: CA          DEX
+FEA2: D0 F7       BNE $F7
+FEA4: D0 14       BNE $14
+FEA6: A9 0D       LDA #$0D
+FEA8: 20 EF FE    JSR $FEEF
+FEAB: A5 25       LDA #$25
+FEAD: 20 DC FE    JSR $FEDC
+FEB0: A5 24       LDA #$24
+FEB2: 20 DC FE    JSR $FEDC
+FEB5: A9 3A       LDA #$3A
+FEB7: 20 EF FE    JSR $FEEF
+FEBA: A9 20       LDA #$20
+FEBC: 20 EF FE    JSR $FEEF
+FEBF: A1 24       LDA ($24,X)
+FEC1: 20 DC FE    JSR $FEDC
+FEC4: 86 2B       STX #$2B
+FEC6: A5 24       LDA #$24
+FEC8: C5 28       CMP #$28
+FECA: A5 25       LDA #$25
+FECC: E5 29       SBC #$29
+FECE: B0 C1       BCS $C1
+FED0: E6 24       INC #$24
+FED2: D0 02       BNE $02
+FED4: E6 25       INC #$25
+FED6: A5 24       LDA #$24
+FED8: 29 07       AND #$07
+FEDA: 10 C8       BPL $C8
+FEDC: 48          PHA
+FEDD: 4A          LSR A
+FEDE: 4A          LSR A
+FEDF: 4A          LSR A
+FEE0: 4A          LSR A
+FEE1: 20 E5 FE    JSR $FEE5
+FEE4: 68          PLA
+FEE5: 29 0F       AND #$0F
+FEE7: 09 30       ORA #$30
+FEE9: C9 3A       CMP #$3A
+FEEB: 90 02       BCC $02
+FEED: 69 06       ADC #$06
+FEEF: 48          PHA
+FEF0: 8D 00 50    STA $5000
+FEF3: A9 FF       LDA #$FF
+FEF5: 3A          DEC A
+FEF6: D0 FD       BNE $FD
+FEF8: 68          PLA
+FEF9: 60          RTS
