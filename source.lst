@@ -1,127 +1,169 @@
-FE00: A9 1F       LDA #$1F
-FE02: 8D 03 50    STA $5003
-FE05: A9 0B       LDA #$0B
-FE07: 8D 02 50    STA $5002
-FE0A: A9 1B       LDA #$1B
-FE0C: C9 08       CMP #$08
-FE0E: F0 13       BEQ $13
-FE10: C9 1B       CMP #$1B
-FE12: F0 03       BEQ $03
-FE14: C8          INY
-FE15: 10 0F       BPL $0F
-FE17: A9 5C       LDA #$5C
-FE19: 20 EF FE    JSR $FEEF
-FE1C: A9 0D       LDA #$0D
-FE1E: 20 EF FE    JSR $FEEF
-FE21: A0 01       LDY #$01
-FE23: 88          DEY
-FE24: 30 F6       BMI $F6
-FE26: AD 01 50    LDA $5001
-FE29: 29 08       AND #$08
-FE2B: F0 F9       BEQ $F9
-FE2D: AD 00 50    LDA $5000
-FE30: 99 00 02    STA $0200,Y
-FE33: 20 EF FE    JSR $FEEF
-FE36: C9 0D       CMP #$0D
-FE38: D0 D2       BNE $D2
-FE3A: A0 FF       LDY #$FF
-FE3C: A9 00       LDA #$00
-FE3E: AA          TAX
-FE3F: 0A          ASL A
-FE40: 0A          ASL A
-FE41: 85 2B       STA #$2B
-FE43: C8          INY
-FE44: B9 00 02    LDA $0200,Y
-FE47: C9 0D       CMP #$0D
-FE49: F0 D1       BEQ $D1
-FE4B: C9 2E       CMP #$2E
-FE4D: 90 F4       BCC $F4
-FE4F: F0 EE       BEQ $EE
-FE51: C9 3A       CMP #$3A
-FE53: F0 EB       BEQ $EB
-FE55: C9 52       CMP #$52
-FE57: F0 3B       BEQ $3B
-FE59: 86 28       STX #$28
-FE5B: 86 29       STX #$29
-FE5D: 84 2A       STY #$2A
-FE5F: B9 00 02    LDA $0200,Y
-FE62: 49 30       EOR #$30
-FE64: C9 0A       CMP #$0A
-FE66: 90 06       BCC $06
-FE68: 69 88       ADC #$88
-FE6A: C9 FA       CMP #$FA
-FE6C: 90 11       BCC $11
-FE6E: 0A          ASL A
-FE6F: 0A          ASL A
-FE70: 0A          ASL A
-FE71: 0A          ASL A
-FE72: A2 04       LDX #$04
-FE74: 0A          ASL A
-FE75: 26 28       ROL #$28
-FE77: 26 29       ROL #$29
-FE79: CA          DEX
-FE7A: D0 F8       BNE $F8
-FE7C: C8          INY
-FE7D: D0 E0       BNE $E0
-FE7F: C4 2A       CPY #$2A
-FE81: F0 94       BEQ $94
-FE83: 24 2B       BIT #$2B
-FE85: 50 10       BVC $10
-FE87: A5 28       LDA #$28
-FE89: 81 26       STA ($26,X)
-FE8B: E6 26       INC #$26
-FE8D: D0 B5       BNE $B5
-FE8F: E6 27       INC #$27
-FE91: 4C 44 FE    JMP $FE44
-FE94: 6C 24 00    JMP ($0024)
-FE97: 30 2B       BMI $2B
-FE99: A2 02       LDX #$02
-FE9B: B5 27       LDA #$27,X
-FE9D: 95 25       STA #$25,X
-FE9F: 95 23       STA #$23,X
-FEA1: CA          DEX
-FEA2: D0 F7       BNE $F7
-FEA4: D0 14       BNE $14
-FEA6: A9 0D       LDA #$0D
-FEA8: 20 EF FE    JSR $FEEF
-FEAB: A5 25       LDA #$25
-FEAD: 20 DC FE    JSR $FEDC
-FEB0: A5 24       LDA #$24
-FEB2: 20 DC FE    JSR $FEDC
-FEB5: A9 3A       LDA #$3A
-FEB7: 20 EF FE    JSR $FEEF
-FEBA: A9 20       LDA #$20
-FEBC: 20 EF FE    JSR $FEEF
-FEBF: A1 24       LDA ($24,X)
-FEC1: 20 DC FE    JSR $FEDC
-FEC4: 86 2B       STX #$2B
-FEC6: A5 24       LDA #$24
-FEC8: C5 28       CMP #$28
-FECA: A5 25       LDA #$25
-FECC: E5 29       SBC #$29
-FECE: B0 C1       BCS $C1
-FED0: E6 24       INC #$24
-FED2: D0 02       BNE $02
-FED4: E6 25       INC #$25
-FED6: A5 24       LDA #$24
-FED8: 29 07       AND #$07
-FEDA: 10 C8       BPL $C8
-FEDC: 48          PHA
-FEDD: 4A          LSR A
-FEDE: 4A          LSR A
-FEDF: 4A          LSR A
-FEE0: 4A          LSR A
-FEE1: 20 E5 FE    JSR $FEE5
-FEE4: 68          PLA
-FEE5: 29 0F       AND #$0F
-FEE7: 09 30       ORA #$30
-FEE9: C9 3A       CMP #$3A
-FEEB: 90 02       BCC $02
-FEED: 69 06       ADC #$06
-FEEF: 48          PHA
-FEF0: 8D 00 50    STA $5000
-FEF3: A9 FF       LDA #$FF
-FEF5: 3A          DEC A
-FEF6: D0 FD       BNE $FD
-FEF8: 68          PLA
-FEF9: 60          RTS
+ACIA_CMD            $5002         $0024  XAML
+ACIA_CTRL           $5003         $0025  XAMH
+ACIA_DATA           $5000         $0026  STL
+ACIA_STATUS         $5001         $0027  STH
+BACKSPACE           $FE23         $0028  L
+BLSKIP              $FE43         $0029  H
+DIG                 $FE6E         $002A  YSAV
+ECHO                $FEEF         $002B  MODE
+ESCAPE              $FE17         $0200  IN
+GETLINE             $FE1C         $5000  ACIA_DATA
+H                   $0029         $5001  ACIA_STATUS
+HEXSHIFT            $FE74         $5002  ACIA_CMD
+IN                  $0200         $5003  ACIA_CTRL
+L                   $0028         $FE00  RESET
+MOD8CHK             $FED6         $FE0C  NOTCR
+MODE                $002B         $FE17  ESCAPE
+NEXTCHAR            $FE26         $FE1C  GETLINE
+NEXTHEX             $FE5F         $FE23  BACKSPACE
+NEXTITEM            $FE44         $FE26  NEXTCHAR
+NOTCR               $FE0C         $FE3F  SETBLOCK
+NOTHEX              $FE7F         $FE40  SETSTOR
+NOTSTOR             $FE97         $FE43  BLSKIP
+NXTPRNT             $FEA4         $FE44  NEXTITEM
+PRBYTE              $FEDC         $FE5F  NEXTHEX
+PRDATA              $FEBA         $FE6E  DIG
+PRHEX               $FEE5         $FE74  HEXSHIFT
+RESET               $FE00         $FE7F  NOTHEX
+RUN                 $FE94         $FE91  TONEXTITEM
+SETADR              $FE9B         $FE94  RUN
+SETBLOCK            $FE3F         $FE97  NOTSTOR
+SETSTOR             $FE40         $FE9B  SETADR
+STH                 $0027         $FEA4  NXTPRNT
+STL                 $0026         $FEBA  PRDATA
+TONEXTITEM          $FE91         $FEC4  XAMNEXT
+TXDELAY             $FEF5         $FED6  MOD8CHK
+XAMH                $0025         $FEDC  PRBYTE
+XAML                $0024         $FEE5  PRHEX
+XAMNEXT             $FEC4         $FEEF  ECHO
+YSAV                $002A         $FEF5  TXDELAY
+
+-----------PROGRAM START--------------
+
+["RESET"]           FE00:  A9 1E       LDA #$1E       
+                    FE02:  8D 03 50    STA $5003      ACIA_CTRL
+                    FE05:  A9 0B       LDA #$0B       
+                    FE07:  8D 02 50    STA $5002      ACIA_CMD
+                    FE0A:  A9 1B       LDA #$1B       
+["NOTCR"]           FE0C:  C9 08       CMP #$08       
+                    FE0E:  F0 13       BEQ $13        BACKSPACE
+                    FE10:  C9 1B       CMP #$1B       
+                    FE12:  F0 03       BEQ $03        ESCAPE
+                    FE14:  C8          INY
+                    FE15:  10 0F       BPL $0F        NEXTCHAR
+["ESCAPE"]          FE17:  A9 5C       LDA #$5C       
+                    FE19:  20 EF FE    JSR $FEEF      ECHO
+["GETLINE"]         FE1C:  A9 0D       LDA #$0D       
+                    FE1E:  20 EF FE    JSR $FEEF      ECHO
+                    FE21:  A0 01       LDY #$01       
+["BACKSPACE"]       FE23:  88          DEY
+                    FE24:  30 F6       BMI $F6        GETLINE
+["NEXTCHAR"]        FE26:  AD 01 50    LDA $5001      ACIA_STATUS
+                    FE29:  29 08       AND #$08       
+                    FE2B:  F0 F9       BEQ $F9        NEXTCHAR
+                    FE2D:  AD 00 50    LDA $5000      ACIA_DATA
+                    FE30:  99 00 02    STA $0200,Y    IN
+                    FE33:  20 EF FE    JSR $FEEF      ECHO
+                    FE36:  C9 0D       CMP #$0D       
+                    FE38:  D0 D2       BNE $D2        NOTCR
+                    FE3A:  A0 FF       LDY #$FF       
+                    FE3C:  A9 00       LDA #$00       
+                    FE3E:  AA          TAX
+["SETBLOCK"]        FE3F:  0A          ASL A
+["SETSTOR"]         FE40:  0A          ASL A
+                    FE41:  85 2B       STA $2B        MODE
+["BLSKIP"]          FE43:  C8          INY
+["NEXTITEM"]        FE44:  B9 00 02    LDA $0200,Y    IN
+                    FE47:  C9 0D       CMP #$0D       
+                    FE49:  F0 D1       BEQ $D1        GETLINE
+                    FE4B:  C9 2E       CMP #$2E       
+                    FE4D:  90 F4       BCC $F4        BLSKIP
+                    FE4F:  F0 EE       BEQ $EE        SETBLOCK
+                    FE51:  C9 3A       CMP #$3A       
+                    FE53:  F0 EB       BEQ $EB        SETSTOR
+                    FE55:  C9 52       CMP #$52       
+                    FE57:  F0 3B       BEQ $3B        RUN
+                    FE59:  86 28       STX $28        L
+                    FE5B:  86 29       STX $29        H
+                    FE5D:  84 2A       STY $2A        YSAV
+["NEXTHEX"]         FE5F:  B9 00 02    LDA $0200,Y    IN
+                    FE62:  49 30       EOR #$30       
+                    FE64:  C9 0A       CMP #$0A       
+                    FE66:  90 06       BCC $06        DIG
+                    FE68:  69 88       ADC #$88       
+                    FE6A:  C9 FA       CMP #$FA       
+                    FE6C:  90 11       BCC $11        NOTHEX
+["DIG"]             FE6E:  0A          ASL A
+                    FE6F:  0A          ASL A
+                    FE70:  0A          ASL A
+                    FE71:  0A          ASL A
+                    FE72:  A2 04       LDX #$04       
+["HEXSHIFT"]        FE74:  0A          ASL A
+                    FE75:  26 28       ROL $28        L
+                    FE77:  26 29       ROL $29        H
+                    FE79:  CA          DEX
+                    FE7A:  D0 F8       BNE $F8        HEXSHIFT
+                    FE7C:  C8          INY
+                    FE7D:  D0 E0       BNE $E0        NEXTHEX
+["NOTHEX"]          FE7F:  C4 2A       CPY $2A        YSAV
+                    FE81:  F0 94       BEQ $94        ESCAPE
+                    FE83:  24 2B       BIT $2B        MODE
+                    FE85:  50 10       BVC $10        NOTSTOR
+                    FE87:  A5 28       LDA $28        L
+                    FE89:  81 26       STA ($26,X)    STL
+                    FE8B:  E6 26       INC $26        STL
+                    FE8D:  D0 B5       BNE $B5        NEXTITEM
+                    FE8F:  E6 27       INC $27        STH
+["TONEXTITEM"]      FE91:  4C 44 FE    JMP $FE44      NEXTITEM
+["RUN"]             FE94:  6C 24 00    JMP ($0024)    XAML
+["NOTSTOR"]         FE97:  30 2B       BMI $2B        XAMNEXT
+                    FE99:  A2 02       LDX #$02       
+["SETADR"]          FE9B:  B5 27       LDA #$27,X     STH
+                    FE9D:  95 25       STA #$25,X     XAMH
+                    FE9F:  95 23       STA #$23,X     
+                    FEA1:  CA          DEX
+                    FEA2:  D0 F7       BNE $F7        SETADR
+["NXTPRNT"]         FEA4:  D0 14       BNE $14        PRDATA
+                    FEA6:  A9 0D       LDA #$0D       
+                    FEA8:  20 EF FE    JSR $FEEF      ECHO
+                    FEAB:  A5 25       LDA $25        XAMH
+                    FEAD:  20 DC FE    JSR $FEDC      PRBYTE
+                    FEB0:  A5 24       LDA $24        XAML
+                    FEB2:  20 DC FE    JSR $FEDC      PRBYTE
+                    FEB5:  A9 3A       LDA #$3A       
+                    FEB7:  20 EF FE    JSR $FEEF      ECHO
+["PRDATA"]          FEBA:  A9 20       LDA #$20       
+                    FEBC:  20 EF FE    JSR $FEEF      ECHO
+                    FEBF:  A1 24       LDA ($24,X)    XAML
+                    FEC1:  20 DC FE    JSR $FEDC      PRBYTE
+["XAMNEXT"]         FEC4:  86 2B       STX $2B        MODE
+                    FEC6:  A5 24       LDA $24        XAML
+                    FEC8:  C5 28       CMP $28        L
+                    FECA:  A5 25       LDA $25        XAMH
+                    FECC:  E5 29       SBC $29        H
+                    FECE:  B0 C1       BCS $C1        TONEXTITEM
+                    FED0:  E6 24       INC $24        XAML
+                    FED2:  D0 02       BNE $02        MOD8CHK
+                    FED4:  E6 25       INC $25        XAMH
+["MOD8CHK"]         FED6:  A5 24       LDA $24        XAML
+                    FED8:  29 07       AND #$07       
+                    FEDA:  10 C8       BPL $C8        NXTPRNT
+["PRBYTE"]          FEDC:  48          PHA
+                    FEDD:  4A          LSR A
+                    FEDE:  4A          LSR A
+                    FEDF:  4A          LSR A
+                    FEE0:  4A          LSR A
+                    FEE1:  20 E5 FE    JSR $FEE5      PRHEX
+                    FEE4:  68          PLA
+["PRHEX"]           FEE5:  29 0F       AND #$0F       
+                    FEE7:  09 30       ORA #$30       
+                    FEE9:  C9 3A       CMP #$3A       
+                    FEEB:  90 02       BCC $02        ECHO
+                    FEED:  69 06       ADC #$06       
+["ECHO"]            FEEF:  48          PHA
+                    FEF0:  8D 00 50    STA $5000      ACIA_DATA
+                    FEF3:  A9 FF       LDA #$FF       
+["TXDELAY"]         FEF5:  3A          DEC A
+                    FEF6:  D0 FD       BNE $FD        TXDELAY
+                    FEF8:  68          PLA
+                    FEF9:  60          RTS

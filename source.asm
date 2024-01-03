@@ -18,7 +18,7 @@ ACIA_CMD    = $5002
 ACIA_CTRL   = $5003
 
 RESET:
-                LDA     #$1F           ; 8-N-1, 19200 baud.
+                LDA     #$1E           ; 8-N-1, 19200 baud.
                 STA     ACIA_CTRL
                 LDA     #$0B           ; No parity, no echo, no interrupts.
                 STA     ACIA_CMD
@@ -191,4 +191,4 @@ TXDELAY:        DEC                    ; Decrement A.
 
                 .word   $0F00          ; NMI vector
                 .word   RESET          ; RESET vector
-                .word   $0000          ; IRQ vector
+               .word   $0000          ; IRQ vector
